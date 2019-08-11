@@ -1,0 +1,22 @@
+process notes for asynchronous programming in node
+==================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+additional resources
+=====================
+https://blog.risingstack.com/node-hero-async-programming-in-node-js/  -- Event loop
+https://eloquentjavascript.net/11_async.html  -- async chapter
