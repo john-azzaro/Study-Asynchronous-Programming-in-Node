@@ -68,9 +68,9 @@ In a **synchronous program**, the program would simply execute the first order, 
 then execute the third order as follows (assuming the setTimeout function is not there):
 ```
 Order 1 served...
-######################
-### wait 2 seconds ###
-######################
+  #################################################################
+  After 2 seconds (blocking the rest of the program until complete)
+  #################################################################
 Order 2 -- SPECIAL REQUEST: SERVE LAST...
 Order 3 served...
 
@@ -83,6 +83,9 @@ from executing before moving on to the next one.
 ```
 Order 1 served...
 Order 3 served...
+  ########################################################
+  After 2 seconds (non-blocking because Order 3 completed)
+  ########################################################
 Order 2 -- SPECIAL REQUEST: SERVE LAST...
 ```
 
