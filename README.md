@@ -15,6 +15,8 @@ As opposed to **synchronous** (or **blocking**) architecture which is where a pr
 Let's use the analogy of a restraurant to show the difference between asynchronous vs synchronous architecture.  In both restaurants, there are two
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
 
+<br>
+
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   **Serve table 1**.
 2.   Take that order to the kitchen.
@@ -24,14 +26,19 @@ In a **synchronous** (or **blocking**) restaurant, the waiter will:
 6.   Wait at the kitchen for the order, then bring the food back to Table 2.
 
 ```JavaScript
-console.log('Order 1 served...');
-console.log('Order 2 served...')
+        console.log('Order 1 served...');
+        console.log('Order 2 served...');
 ```
 In the example above, the first line is "blocking" the second line, which has to wait for the first line to execute.
+```
+Order 1 served
+```
 
 
 The key takeaway here is that *this process is very inefficient* since the waiter has to wait at the kitchen for the order to fill and send back to
 Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the second table, which can only be served *after* table 1 is served.
+
+<br>
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
 1.   **Serve table 1**.
@@ -43,6 +50,18 @@ In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
 
 The key takaway for asynchronous architecture here is that is it *much more efficient* than synchronous architecture because it does NOT block
 the single-thread waiter from waiting on other tables.
+
+```JavaScript
+        console.log('Order 1 served...')                                  
+
+        setTimeout(function() {                                      
+        console.log('Order 3 requested to be served last...')                            
+        }, 2000);   
+
+        console.log('Order 2 served...');                                                                                                                       
+```
+In the example above, 
+
 
 <br>
 
