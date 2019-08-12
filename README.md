@@ -64,17 +64,21 @@ the single-thread waiter from waiting on other tables.
 In this example, we have 3 orders to be executed.  However, the second order is an **asynchronous** function (i.e. setTimeout) which will run AFTER
 2 seconds have expired. 
 
-In a synchronous program, the program would simply execute the first order, execute the second order (after 2 seconds), and
+In a **synchronous program**, the program would simply execute the first order, execute the second order (after 2 seconds), and
 then execute the third order as follows (assuming the setTimeout function is not there):
 ```
 Order 1 served...
----wait 2 seconds---
+######################
+### wait 2 seconds ###
+######################
 Order 2 -- SPECIAL REQUEST: SERVE LAST...
 Order 3 served...
 
 ```
 Of course, this is inefficient because the second order is "blocking" the third order from executing since the third order does not have any special 
-instructions. In an asynchronous program, the program would execute in a "non-blocking" fashion, not waiting for parts of the code like the setTimeout function
+instructions. 
+
+In an **asynchronous program**, the program would execute in a "non-blocking" fashion, not waiting for parts of the code like the setTimeout function
 from executing before moving on to the next one. 
 ```
 Order 1 served...
