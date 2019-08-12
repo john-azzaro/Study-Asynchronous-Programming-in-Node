@@ -16,26 +16,25 @@ Let's use the analogy of a restraurant to show the difference between asynchrono
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
-    1.   **Serve table 1**.
-    2.   Take that order to the kitchen.
-    3.   Wait at the kitchen for the order, then bring the food back to Table 1.
-    4.   **Serve Table 2**.
-    5.   Take that order to the kitchen.
-    6.   Wait at the kitchen for the order, then bring the food back to Table 2.
+1.   **Serve table 1**.
+2.   Take that order to the kitchen.
+3.   Wait at the kitchen for the order, then bring the food back to Table 1.
+4.   **Serve Table 2**.
+5.   Take that order to the kitchen.
+6.   Wait at the kitchen for the order, then bring the food back to Table 2.
 
 
 The key takeaway here is that *this process is very inefficient* since the waiter has to wait at the kitchen for the order to fill and send back to
 Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the second table, which can only be served *after* table 1 is served.
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
-    1.   **Serve table 1**.
-    2.   Take that order to the kitchen.
-    3.   **Serve Table 2**.
-    4.   When that order is done, bring the food back to Table 1.
-    5.   
-    6.   Take that order to the kitchen.
-    7.   Wait at the kitchen for the order.
-    8.   When that order is done, bring the food back to Table 2.
+1.   **Serve table 1**.
+2.   Take that order to the kitchen.
+3.   **Serve Table 2**.
+4.   Take that order to the kitchen.
+5.   Depending on which meal is ready first, it will sit on top of the "event queue" shelf until ready.
+6.   When both meals are ready, they will be taken out od queue and processed!.
+
 
 
 
