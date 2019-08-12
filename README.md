@@ -18,12 +18,12 @@ tables, a kitchen to process the orders from the tables, and a waiter to send th
 <br>
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
-1.   **Serve table 1**.
-2.   Take that order to the kitchen.
-3.   Wait at the kitchen for the order, then bring the food back to Table 1.
-4.   **Serve Table 2**.
-5.   Take that order to the kitchen.
-6.   Wait at the kitchen for the order, then bring the food back to Table 2.
+1.   ***Serve table 1**.*
+2.   *Take that order to the kitchen.*
+3.   *Wait at the kitchen for the order, then bring the food back to Table 1.*
+4.   ***Serve Table 2**.*
+5.   *Take that order to the kitchen.*
+6.   *Wait at the kitchen for the order, then bring the food back to Table 2.*
 
 ```JavaScript
         console.log('Order 1 served...');
@@ -31,7 +31,8 @@ In a **synchronous** (or **blocking**) restaurant, the waiter will:
 ```
 In the example above, the first line is "blocking" the second line, which has to wait for the first line to execute.
 ```
-Order 1 served
+Order 1 served...
+Order 2 served...
 ```
 
 
@@ -41,12 +42,12 @@ Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the
 <br>
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
-1.   **Serve table 1**.
-2.   Take that order to the kitchen.
-3.   **Serve Table 2**.
-4.   Take that order to the kitchen.
-5.   Depending on which meal is ready first, it will sit on top of the "event queue" shelf until ready.
-6.   When both meals are ready, they will be taken out od queue and processed!.
+1.   ***Serve table 1***.
+2.   *Take that order to the kitchen.*
+3.   ***Serve Table 2**.*
+4.   *Take that order to the kitchen.*
+5.   *Depending on which meal is ready first, it will sit on top of the "event queue" shelf until ready.*
+6.   *When both meals are ready, they will be taken out od queue and processed!.*
 
 The key takaway for asynchronous architecture here is that is it *much more efficient* than synchronous architecture because it does NOT block
 the single-thread waiter from waiting on other tables.
@@ -60,7 +61,28 @@ the single-thread waiter from waiting on other tables.
 
         console.log('Order 2 served...');                                                                                                                       
 ```
-In the example above, 
+In this example, we have 3 orders to be executed.  However, the second order is an **asynchronous** function (i.e. setTimeout) which will run AFTER
+2 seconds have expired. 
+
+In a synchronous program, the program would simply execute the first order, execute the second order (after 2 seconds), and
+then execute the third order as follows (assuming the setTimeout function is not there):
+```
+Order 1 served...
+---wait 2 seconds---
+Order 2 -- SPECIAL REQUEST: SERVE LAST...
+Order 3 served...
+
+```
+Of course, this is inefficient because the second order is "blocking" the third order from executing since the third order does not have any special 
+instructions. In an asynchronous program, the program would execute in a "non-blocking" fashion, not waiting for parts of the code like the setTimeout function
+from executing before moving on to the next one. 
+```
+Order 1 served...
+Order 3 served...
+Order 2 -- SPECIAL REQUEST: SERVE LAST...
+```
+
+
 
 
 <br>
