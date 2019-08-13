@@ -8,20 +8,14 @@ action that is allowed to continue outside of the ongoing flow of the program.
 
 <br>
 
-## Node is asynchronous and uses a single thread services multiple requests.
-Node has an **asynchronous**  (or **non-blocking**) architecture uses a **single thead to service multiple requests**.
-With **synchronous** (or **blocking**) architecture, a program must process one thing first and *then* move on to the next task.
-
-<br>
-
-## What is the difference between asynchonous and synchronous architecture?
+## What's the difference between "asynchronous" and "synchronous" architecture?
 
 Let's use the analogy of a restraurant to show the difference between asynchronous vs synchronous architecture.  In both restaurants, there are two
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
 
 <br>
 
-### With synchronous architecture, a task blocks the program until it is doen before moving on.
+### Synchronous architecture "blocks" a program 
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   ***Serve table 1**.*
@@ -97,31 +91,29 @@ Order 2 -- SPECIAL REQUEST: SERVE LAST...
 ```
 
 
+##Is Node asynchronous?
+Node has an **asynchronous**  (or **non-blocking**) architecture that uses a **single thead to service multiple requests**.  Asynchronous operations 
+allow Node.js to serve multiple requests efficiently as opposed to **synchronous** (or **blocking**) architecture, where a program must process one t
+hing first and *then* move on to the next task.
 
 
 <br>
 
-### Node is Asynchronous
-Node has an Asynchronous, "non-blocking" architecture that uses a single thread to service multiple requests.
+## What are the patterns we can use in Node to deal with asynchronous code?
+There are three patterns that can help deal with asynchronous code:
+1.      Callbacks 
+2.      Promises
+3.      Async/Await
 
 
+<br>
+
+## What is a callback?
+A **callback** is a function that will be called when the result of the asynchronous function is ready.
+
+### How do you use a callback in a function?
+Suppose you have a function that needs to return a user
+ 
 
 
-
-
-
-
-
-
-### Asynchronous operations are executed in a different order then how they are listed in a program.
-
-
-
-
-### Node has an asynchronous, non-blocking architecture.
-This is a test
-
-**Asynchronous programming** 
-
-## How does Asynchronous Programming in JavaScript work in Node?
 
