@@ -10,3 +10,15 @@ function getUser(id) {
             return { id: id, Username: 'Alan' }   ;                       
     }, 2000);
 }
+
+
+/* 
+The result will be:
+
+$ node callbackExample.js
+Before
+undefined
+After
+Reading a user from a database...
+
+*/

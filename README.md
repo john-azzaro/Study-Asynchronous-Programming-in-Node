@@ -111,6 +111,8 @@ There are three patterns that can help deal with asynchronous code:
 ## What is a callback?
 A **callback** is a function that will be called when the result of the asynchronous function is ready.
 
+<br>
+
 ### How do you use a callback in a function?
 Suppose you have a function that needs to return a user from a database. 
 
@@ -129,9 +131,7 @@ from a database immediatley, which is why in this case the delay is simulated by
                         console.log('Reading a user from database...');
                         return { id: id, Username: 'Alan' }   ;                       
                 }, 2000);
-        }
-
-        getUser(1);        
+        }     
 ```
 
 If you run the code above, you will see this in the console:
@@ -144,7 +144,37 @@ Reading a user from a database...
 ```
  So why did we get *undefined* instead of the user when executed the code?  The reason is because the function within the setTimeout function executed
  2 seconds AFTER the initial execution.  In other words, the function was not available at the time of calling getUser to show in the console.  However, we
- can use a **callback** to deal with this asynchronous code.
+ can use a **callback** to deal with this issue.
 
+<br>
 
+### Use callbacks to deal with asynchronous code!
+To use a callback in the example above, we have to do 3 things:
 
+1. Add "callback" to our function parameters.
+2. Call the "callback" function (in this case with the user object).
+3. Call the function (e.g. getUser) with two arguments: the id and function called with the argument (i.e. the user object).
+
+```JavaScript
+console.log('Before');
+getUser(1, function(user) {                                        // call get user with the id and a function that is called with the user object as the argument.
+    console.log('User', user)       
+});    
+console.log('After');
+
+function getUser(id, callback) {                                    // add callback as a second argument             
+    setTimeout(function() {
+            console.log('Reading a user from a database...');
+            callback({ id: id, Username: 'Alan' });                 // call the callback WITH the user object!
+    }, 2000);
+}
+```
+
+If you run the code above, you will see this in the console:
+```
+Before
+After
+Reading a user from a database...
+User { id: 1, Username: 'Alan' }
+
+```
