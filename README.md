@@ -2,18 +2,17 @@
 
 <br>
 
-## What is Asynchronous Programming in Node Study?
-"Asynchronous Programming in JavaScript Study" is an examination of 
-
-<br>
-
 ## What is asynchronous programming?
 Asynchronous programming refers to the style of structure of a program whereby a call to some unit of functionality triggers an
 action that is allowed to continue outside of the ongoing flow of the program. 
 
+<br>
+
 ## Node is asynchronous and uses a single thread services multiple requests.
-Node has an **asynchronous**  (or **non-blocking**) architecture uses a single thead to service multiple requests as opposed to
-**synchronous** (or **blocking**) architecture which is where a program will process one thing first and then process a second 
+Node has an **asynchronous**  (or **non-blocking**) architecture uses a **single thead to service multiple requests**.
+With **synchronous** (or **blocking**) architecture, a program must process one thing first and *then* move on to the next task.
+
+<br>
 
 ## What is the difference between asynchonous and synchronous architecture?
 
@@ -21,6 +20,8 @@ Let's use the analogy of a restraurant to show the difference between asynchrono
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
 
 <br>
+
+### With synchronous architecture, a task blocks the program until it is doen before moving on.
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   ***Serve table 1**.*
@@ -45,6 +46,8 @@ The key takeaway here is that *this process is very inefficient* since the waite
 Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the second table, which can only be served *after* table 1 is served.
 
 <br>
+
+### With asynchronous architecture, taks are NOT blocked but scheduled to complete in the future.
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
 1.   ***Serve table 1***.
