@@ -15,7 +15,7 @@ tables, a kitchen to process the orders from the tables, and a waiter to send th
 
 <br>
 
-### With synchronous architecture, the program is "blocked" until is finishes a task. 
+### With synchronous architecture, the program is "blocked" until it finishes a task. 
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   ***Serve table 1**.*
