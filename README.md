@@ -15,7 +15,7 @@ tables, a kitchen to process the orders from the tables, and a waiter to send th
 
 <br>
 
-### Synchronous architecture "blocks" a program 
+### With synchronous architecture, the program is "blocked" until is finishes a task. 
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   ***Serve table 1**.*
@@ -112,8 +112,39 @@ There are three patterns that can help deal with asynchronous code:
 A **callback** is a function that will be called when the result of the asynchronous function is ready.
 
 ### How do you use a callback in a function?
-Suppose you have a function that needs to return a user
- 
+Suppose you have a function that needs to return a user from a database. 
+
+In the following example, we have a function that will get a user by id (i.e. getUser(id)).  When we call getUser, we *should* be able to
+retrieve the information to be returned.  However, in real world application you might not be able to immediately retrieve the information
+from a database immediatley, which is why in this case the delay is simulated by using a setTimeout of 2 seconds:
+
+```JavaScript
+        console.log('Before');
+        const user = getUser(1);
+        console.log(user);
+        console.log('After');
+
+        function getUser(id) {                               
+                setTimeout(function() {
+                        console.log('Reading a user from database...');
+                        return { id: id, Username: 'Alan' }   ;                       
+                }, 2000);
+        }
+
+        getUser(1);        
+```
+
+If you run the code above, you will see this in the console:
+```
+Before
+undefined
+after
+Reading a user from a database...
+
+```
+ So why did we get *undefined* instead of the user when executed the code?  The reason is because the function within the setTimeout function executed
+ 2 seconds AFTER the initial execution.  In other words, the function was not available at the time of calling getUser to show in the console.  However, we
+ can use a **callback** to deal with this asynchronous code.
 
 
 
