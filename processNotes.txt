@@ -22,3 +22,4 @@ https://blog.risingstack.com/node-hero-async-programming-in-node-js/  -- Event l
 https://eloquentjavascript.net/11_async.html  -- async chapter
 https://webapplog.com/asynchronicity-in-node-js/  -- async
 https://medium.com/@thejasonfile/how-node-and-javascript-handle-asynchronous-functions-7feb9fc8a610  -- async info
+https://nodesource.com/blog/why-asynchronous/  -- async info

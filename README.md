@@ -7,10 +7,15 @@
 
 <br>
 
+## What is asynchronous programming?
+Asynchronous programming refers to the style of structure of a program whereby a call to some unit of functionality triggers an
+action that is allowed to continue outside of the ongoing flow of the program. 
 
-## With asynchronous architecutre, a single thread can service multiple requests.
-As opposed to **synchronous** (or **blocking**) architecture which is where a program will process one thing first and then process a second, 
-**asynchronous**  (or **non-blocking**) architecture uses a single thead to service multiple requests.
+## Node is asynchronous and uses a single thread services multiple requests.
+Node has an **asynchronous**  (or **non-blocking**) architecture uses a single thead to service multiple requests as opposed to
+**synchronous** (or **blocking**) architecture which is where a program will process one thing first and then process a second 
+
+## What is the difference between asynchonous and synchronous architecture?
 
 Let's use the analogy of a restraurant to show the difference between asynchronous vs synchronous architecture.  In both restaurants, there are two
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
