@@ -8,7 +8,7 @@
 <br>
 
 
-### Asynchronous architecture is very different than Synchronous architecture.
+## With asynchronous architecutre, a single thread can service multiple requests.
 As opposed to **synchronous** (or **blocking**) architecture which is where a program will process one thing first and then process a second, 
 **asynchronous**  (or **non-blocking**) architecture uses a single thead to service multiple requests.
 
@@ -53,13 +53,13 @@ The key takaway for asynchronous architecture here is that is it *much more effi
 the single-thread waiter from waiting on other tables.
 
 ```JavaScript
-        console.log('Order 1 served...')                                  
+        console.log('Order 1 served...')
 
-        setTimeout(function() {                                      
-        console.log('Order 3 requested to be served last...')                            
+        setTimeout(function() {   
+        console.log('Order 2 -- SPECIAL REQUEST: SERVE LAST...')
         }, 2000);   
 
-        console.log('Order 2 served...');                                                                                                                       
+        console.log('Order 3 served...');
 ```
 In this example, we have 3 orders to be executed.  However, the second order is an **asynchronous** function (i.e. setTimeout) which will run AFTER
 2 seconds have expired. 
@@ -73,7 +73,6 @@ Order 1 served...
   #################################################################
 Order 2 -- SPECIAL REQUEST: SERVE LAST...
 Order 3 served...
-
 ```
 Of course, this is inefficient because the second order is "blocking" the third order from executing since the third order does not have any special 
 instructions. 
