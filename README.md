@@ -148,7 +148,7 @@ Reading a user from a database...
 
 <br>
 
-### Use callbacks to deal with asynchronous code!
+### You can use callbacks to deal with asynchronous code!
 To use a callback in the example above, we have to do 3 things:
 
 1. Add "callback" to our function parameters.
@@ -178,3 +178,8 @@ Reading a user from a database...
 User { id: 1, Username: 'Alan' }
 
 ```
+
+<br>
+
+### However, using multiple callbacks can be hell...
+
