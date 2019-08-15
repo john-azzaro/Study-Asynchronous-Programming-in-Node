@@ -41,7 +41,7 @@ Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the
 
 <br>
 
-### With asynchronous architecture, taks are NOT blocked but scheduled to complete in the future.
+### With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future.
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
 1.   ***Serve table 1***.
@@ -91,7 +91,7 @@ Order 2 -- SPECIAL REQUEST: SERVE LAST...
 ```
 
 
-##Is Node asynchronous?
+## Is Node asynchronous?
 Node has an **asynchronous**  (or **non-blocking**) architecture that uses a **single thead to service multiple requests**.  Asynchronous operations 
 allow Node.js to serve multiple requests efficiently as opposed to **synchronous** (or **blocking**) architecture, where a program must process one t
 hing first and *then* move on to the next task.
