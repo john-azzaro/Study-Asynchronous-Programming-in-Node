@@ -89,7 +89,7 @@ Order 3 served...
   ########################################################
 Order 2 -- SPECIAL REQUEST: SERVE LAST...
 ```
-
+<br>
 
 ## Is Node asynchronous?
 Node has an **asynchronous**  (or **non-blocking**) architecture that uses a **single thead to service multiple requests**.  Asynchronous operations 
