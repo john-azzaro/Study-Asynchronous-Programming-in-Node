@@ -188,15 +188,22 @@ One of the drawbacks to using callbacks is that your code can devolve into a ser
 
 <br>
 
-### Using Promises makes it easier to work with asynchronous operations
+## Using Promises makes it easier to work with asynchronous operations
 A "promise" is an object that holds the eventual result of an asynchrnous operation.  In other words, a "promise" essentially promisses you to give you the result of an asynchronous operation.  That result can have either another value or an error. 
 
 A promise can have 3 different states: Pending, Resolved, or Rejected.  To show how these states stack up next to each other, take a look a the example below:
 
 ```
-                                                          [ Fulfilled ] => If async operation completed successfully.
-                [ Pending ]  -------Asynchronous-------->      -or-
-                                     Operation            [ Rejected ]  => If aysn operation has an error.
+                                             [ Fulfilled ] => If async operation completed successfully.
+    [ Pending ]  -------Asynchronous-------->      -or-
+                         Operation           [ Rejected ]  => If aysn operation has an error.
 ```
 
-When a promise is PENDING, this means that the promise object is essentially created and can then kick-off some asynchronous operation.
+When a promise is **PENDING**, the promise object is essentially created and can then kick-off some asynchronous operation.
+
+When a promise is **RESOLVED**, the result is ready from the asynchronous operationm, the promise can be fulfilled.  In other words, the
+asynchronous operation completed successfully and you have a value ready for you to use.
+
+When a promise is **REJECTED**, something went wrong with the execution of the asychronous operation and the promise is rejected.
+
+###
