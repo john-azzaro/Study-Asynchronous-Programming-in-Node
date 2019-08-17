@@ -182,4 +182,10 @@ User { id: 1, Username: 'Alan' }
 <br>
 
 ### However, using multiple callbacks can be hell...
+One of the drawbacks to using callbacks is that your code can devolve into a series of nested callback functions, which is commonly referred to as 
+"Callback hell" or "Christmas tree problem" or "pyramid of doom".  This is something you want to avoid because it is associated with bad coding practices.
 
+
+<br>
+
+###
