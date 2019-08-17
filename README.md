@@ -2,18 +2,18 @@
 
 <br>
 
-* [What is asynchronous programming?](#What-is-asynchronous-programming?)
-* [What's the difference between "asynchronous" and "synchronous" architecture?](#What's-the-difference-between-"asynchronous"-and-"synchronous"-architecture?)
-   * [With synchronous architecture, the program is "blocked" until it finishes a task. ](#With-synchronous-architecture,-the-program-is-"blocked"-until-it-finishes-a-task.)
-   * [With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future.](#With-asynchronous-architecture,-tasks-are-NOT-blocked-but-scheduled-to-complete-in-the-future.)
-* [Is Node asynchronous?](#Is-Node-asynchronous?)
-* [What are the patterns we can use in Node to deal with asynchronous code?](#What-are-the-patterns-we-can-use-in-Node-to-deal-with-asynchronous-code?)
-* [What is a callback?](#What-is-a-callback?)
-   * [How do you use a callback in a function?](#How-do-you-use-a-callback-in-a-function?)
-   * [You can use callbacks to deal with asynchronous code!](#You-can-use-callbacks-to-deal-with-asynchronous-code!)
-   * [However, using multiple callbacks can be hell...](#However,-using-multiple-callbacks-can-be-hell...)
+* [What is asynchronous programming?](#What-is-asynchronous-programming)
+* [What's the difference between "asynchronous" and "synchronous" architecture?](#What's-the-difference-between-"asynchronous"-and-"synchronous"-architecture)
+   * [With synchronous architecture, the program is "blocked" until it finishes a task. ](#With-synchronous-architecture,-the-program-is-"blocked"-until-it-finishes-a-task)
+   * [With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future.](#With-asynchronous-architecture,-tasks-are-NOT-blocked-but-scheduled-to-complete-in-the-future)
+* [Is Node asynchronous?](#Is-Node-asynchronous)
+* [What are the patterns we can use in Node to deal with asynchronous code?](#What-are-the-patterns-we-can-use-in-Node-to-deal-with-asynchronous-code)
+* [What is a callback?](#What-is-a-callback)
+   * [How do you use a callback in a function?](#How-do-you-use-a-callback-in-a-function)
+   * [You can use callbacks to deal with asynchronous code!](#You-can-use-callbacks-to-deal-with-asynchronous-code)
+   * [However, using multiple callbacks can be hell...](#However,-using-multiple-callbacks-can-be-hell)
 * [Promises make it easier to work with asynchronous operations](#Promises-make-it-easier-to-work-with-asynchronous-operations)
-   * [How do you use Promises?](#How-do-you-use-Promises?)
+   * [How do you use Promises?](#How-do-you-use-Promises)
 
 
 <br>
