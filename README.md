@@ -1,8 +1,24 @@
 # Asynchronous Programming in Node
 
+**Study Navigation**
+
+* [What is asynchronous programming?](#What-is-asynchronous-programming?)
+* [What's the difference between "asynchronous" and "synchronous" architecture?](#What's-the-difference-between-"asynchronous"-and-"synchronous"-architecture?)
+   * [With synchronous architecture, the program is "blocked" until it finishes a task. ](#With-synchronous-architecture,-the-program-is-"blocked"-until-it-finishes-a-task.)
+   * [With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future.](#With-asynchronous-architecture,-tasks-are-NOT-blocked-but-scheduled-to-complete-in-the-future.)
+* [Is Node asynchronous?](#Is-Node-asynchronous?)
+* [What are the patterns we can use in Node to deal with asynchronous code?](#What-are-the-patterns-we-can-use-in-Node-to-deal-with-asynchronous-code?)
+* [What is a callback?](#What-is-a-callback?)
+   * [How do you use a callback in a function?](#How-do-you-use-a-callback-in-a-function?)
+   * [You can use callbacks to deal with asynchronous code!](#You-can-use-callbacks-to-deal-with-asynchronous-code!)
+   * [However, using multiple callbacks can be hell...](#However,-using-multiple-callbacks-can-be-hell...)
+* [Promises make it easier to work with asynchronous operations](#Promises-make-it-easier-to-work-with-asynchronous-operations)
+   * [How do you use Promises?](#How-do-you-use-Promises?)
+
+
 <br>
 
-## What is asynchronous programming?
+## 
 Asynchronous programming refers to the style of structure of a program whereby a call to some unit of functionality triggers an
 action that is allowed to continue outside of the ongoing flow of the program. 
 
@@ -188,7 +204,7 @@ One of the drawbacks to using callbacks is that your code can devolve into a ser
 
 <br>
 
-## How do promises make it easier to work with asynchronous operations
+## Promises make it easier to work with asynchronous operations
 A "promise" is an object that holds the eventual result of an asynchrnous operation.  In other words, *a "promise" essentially promisses you to give you the result of an asynchronous operation.*  That result can have either another value or an error.  With promises, you can avoid the issues asociate with "callback hell".
 
 A promise can have 3 different states: Pending, Resolved, or Rejected.  To show how these states stack up next to each other, take a look a the example below:
