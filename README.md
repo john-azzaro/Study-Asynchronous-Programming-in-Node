@@ -31,8 +31,8 @@ In a **synchronous** (or **blocking**) restaurant, the waiter will:
 ```
 In the example above, the first line is "blocking" the second line, which has to wait for the first line to execute.
 ```
-Order 1 served...
-Order 2 served...
+        Order 1 served...
+        Order 2 served...
 ```
 
 
@@ -69,12 +69,12 @@ In this example, we have 3 orders to be executed.  However, the second order is 
 In a **synchronous program**, the program would simply execute the first order, execute the second order (after 2 seconds), and
 then execute the third order as follows (assuming the setTimeout function is not there):
 ```
-Order 1 served...
-  #################################################################
-  After 2 seconds (blocking the rest of the program until complete)
-  #################################################################
-Order 2 -- SPECIAL REQUEST: SERVE LAST...
-Order 3 served...
+        Order 1 served...
+        #################################################################
+        After 2 seconds (blocking the rest of the program until complete)
+        #################################################################
+        Order 2 -- SPECIAL REQUEST: SERVE LAST...
+        Order 3 served...
 ```
 Of course, this is inefficient because the second order is "blocking" the third order from executing since the third order does not have any special 
 instructions. 
@@ -82,12 +82,12 @@ instructions.
 In an **asynchronous program**, the program would execute in a "non-blocking" fashion, not waiting for parts of the code like the setTimeout function
 from executing before moving on to the next one. 
 ```
-Order 1 served...
-Order 3 served...
-  ########################################################
-  After 2 seconds (non-blocking because Order 3 completed)
-  ########################################################
-Order 2 -- SPECIAL REQUEST: SERVE LAST...
+        Order 1 served...
+        Order 3 served...
+        ########################################################
+        After 2 seconds (non-blocking because Order 3 completed)
+        ########################################################
+        Order 2 -- SPECIAL REQUEST: SERVE LAST...
 ```
 <br>
 
@@ -136,10 +136,10 @@ from a database immediatley, which is why in this case the delay is simulated by
 
 If you run the code above, you will see this in the console:
 ```
-Before
-undefined
-after
-Reading a user from a database...
+        Before
+        undefined
+        after
+        Reading a user from a database...
 
 ```
  So why did we get *undefined* instead of the user when executed the code?  The reason is because the function within the setTimeout function executed
@@ -157,25 +157,25 @@ To use a callback in the example above, we have to do 3 things:
 
 ```JavaScript
 console.log('Before');
-getUser(1, function(user) {                                        // call get user with the id and a function that is called with the user object as the argument.
-    console.log('User', user)       
+getUser(1, function(user) {                                    // Call get user with the id and a function that 
+   console.log('User', user)                                   // is called with the user object as the argument.
 });    
 console.log('After');
 
-function getUser(id, callback) {                                    // add callback as a second argument             
-    setTimeout(function() {
-            console.log('Reading a user from a database...');
-            callback({ id: id, Username: 'Alan' });                 // call the callback WITH the user object!
-    }, 2000);
+function getUser(id, callback) {                               // Add callback as a second argument             
+   setTimeout(function() {
+      console.log('Reading a user from a database...');
+         callback({ id: id, Username: 'Alan' });               // Call the callback WITH the user object!
+   }, 2000);
 }
 ```
 
 If you run the code above, you will see this in the console:
 ```
-Before
-After
-Reading a user from a database...
-User { id: 1, Username: 'Alan' }
+        Before
+        After
+        Reading a user from a database...
+        User { id: 1, Username: 'Alan' }
 
 ```
 
@@ -183,27 +183,89 @@ User { id: 1, Username: 'Alan' }
 
 ### However, using multiple callbacks can be hell...
 One of the drawbacks to using callbacks is that your code can devolve into a series of nested callback functions, which is commonly referred to as 
-"Callback hell" or "Christmas tree problem" or "pyramid of doom".  This is something you want to avoid because it is associated with bad coding practices.
+*"Callback hell"* or *"Christmas tree problem"* or *"pyramid of doom"*.  This is something you want to avoid because it is associated with bad coding practices.
 
 
 <br>
 
-## Using Promises makes it easier to work with asynchronous operations
-A "promise" is an object that holds the eventual result of an asynchrnous operation.  In other words, a "promise" essentially promisses you to give you the result of an asynchronous operation.  That result can have either another value or an error. 
+## How do promises make it easier to work with asynchronous operations
+A "promise" is an object that holds the eventual result of an asynchrnous operation.  In other words, *a "promise" essentially promisses you to give you the result of an asynchronous operation.*  That result can have either another value or an error.  With promises, you can avoid the issues asociate with "callback hell".
 
 A promise can have 3 different states: Pending, Resolved, or Rejected.  To show how these states stack up next to each other, take a look a the example below:
 
 ```
                                              [ Fulfilled ] => If async operation completed successfully.
     [ Pending ]  -------Asynchronous-------->      -or-
-                         Operation           [ Rejected ]  => If aysn operation has an error.
+                         Operation           [ Rejected ]  => If aysnc operation has an error.
 ```
 
-When a promise is **PENDING**, the promise object is essentially created and can then kick-off some asynchronous operation.
+* When a promise is **PENDING**, the promise object is essentially created and can then kick-off some asynchronous operation.
 
-When a promise is **RESOLVED**, the result is ready from the asynchronous operationm, the promise can be fulfilled.  In other words, the
+* When a promise is **RESOLVED**, the result is ready from the asynchronous operationm, the promise can be fulfilled.  In other words, the
 asynchronous operation completed successfully and you have a value ready for you to use.
 
-When a promise is **REJECTED**, something went wrong with the execution of the asychronous operation and the promise is rejected.
+* When a promise is **REJECTED**, something went wrong with the execution of the asychronous operation and the promise is rejected.
 
-###
+<br>
+
+### How do you use Promises?
+To use a promise, first create a *constructor* function which will create a promise that takes a function as an argument with two parameters, *resolve* or *reject*
+and store as a constant with your preferred variable name (e.g. myProm).  
+
+```JavaScript
+
+                const myProm = new Promise(function(resolve, reject) {
+                    // Some async work goes here.
+                    ...
+                    ...
+                    ...
+                   
+                    ...
+                    ...
+                    ...
+                    ...
+                    ...
+
+                });
+
+```
+Inside this promise, you can see a setTimeout function which is delayed 2 seconds and simulates an asynchronous operation.  This asynchronous operation will be
+*consumed* (i.e. used) somewhere else in the code because the promise object *promises* us that the result (e.g. "The promise works!") will be given to us or else
+we will get a rejected message (e.g. Sorry, the promise didnt work).
+
+
+```JavaScript
+
+                const myProm = new Promise(function(resolve, reject) {
+                   setTimeout(function() {
+                      resolve("The promise works!");                      
+                      reject(new Error('Sorry, the promise didnt work'));  
+                   }, 2000);                                                   
+                });
+
+                ...
+                ...
+                ...
+                ...
+
+```
+
+
+
+```JavaScript
+
+                const myProm = new Promise(function(resolve, reject) {
+                   setTimeout(function() {
+                      resolve("The promise works!");  
+                      reject(new Error('Sorry, the promise didnt work'));                
+                    }, 2000);                                                     
+                });
+
+                myProm.then( function(result) {                 
+                console.log('Result:', result);
+                }).catch( function(err) {                              
+                console.log('Error:', err.message);
+                });
+
+```
+
