@@ -1,6 +1,6 @@
 # Asynchronous Programming in Node
 
-**Study Navigation**
+<br>
 
 * [What is asynchronous programming?](#What-is-asynchronous-programming?)
 * [What's the difference between "asynchronous" and "synchronous" architecture?](#What's-the-difference-between-"asynchronous"-and-"synchronous"-architecture?)
@@ -18,7 +18,7 @@
 
 <br>
 
-## 
+## What is asynchronous programming?
 Asynchronous programming refers to the style of structure of a program whereby a call to some unit of functionality triggers an
 action that is allowed to continue outside of the ongoing flow of the program. 
 
