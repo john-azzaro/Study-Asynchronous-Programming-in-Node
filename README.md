@@ -199,12 +199,12 @@ A promise can have 3 different states: Pending, Resolved, or Rejected.  To show 
                          Operation           [ Rejected ]  => If aysnc operation has an error.
 ```
 
-* When a promise is **PENDING**, the promise object is essentially created and can then kick-off some asynchronous operation.
+When a promise is **PENDING**, the promise object is essentially created and can then kick-off some asynchronous operation.
 
-* When a promise is **RESOLVED**, the result is ready from the asynchronous operationm, the promise can be fulfilled.  In other words, the
+When a promise is **RESOLVED**, the result is ready from the asynchronous operationm, the promise can be fulfilled.  In other words, the
 asynchronous operation completed successfully and you have a value ready for you to use.
 
-* When a promise is **REJECTED**, something went wrong with the execution of the asychronous operation and the promise is rejected.
+When a promise is **REJECTED**, something went wrong with the execution of the asychronous operation and the promise is rejected.
 
 <br>
 
@@ -230,8 +230,13 @@ and store as a constant with your preferred variable name (e.g. myProm).
 
 ```
 Inside this promise, you can see a setTimeout function which is delayed 2 seconds and simulates an asynchronous operation.  This asynchronous operation will be
-*consumed* (i.e. used) somewhere else in the code because the promise object *promises* us that the result (e.g. "The promise works!") will be given to us or else
-we will get a rejected message (e.g. Sorry, the promise didnt work).
+*consumed* (i.e. used) somewhere else in the code because the promise object *promises* us that the result will be given to us. Also note at this point that the 
+promise is *pending*.
+
+**REMEMBER**: The two parameters passed in (e.g. resolve, reject) are **functions**, so inside the asynchronous function we call them and pass a value.  Here, we have 
+two functions, **resolve** and **reject**.
+* IF the promise is **resolved**, then the asynchronous operation will produce "The promise works!".
+* IF the promise is **rejected**, then the asynchronous operation will produce a new error object with the message "Sorry, the promise didnt work".
 
 
 ```JavaScript
@@ -250,6 +255,8 @@ we will get a rejected message (e.g. Sorry, the promise didnt work).
 
 ```
 
+To **consume** a promise, you simply need to call the promise variable (i.e. myProm) and then chain *.then* and *.catch* methods
+to account for resolved or rejected instances! 
 
 
 ```JavaScript
@@ -261,11 +268,13 @@ we will get a rejected message (e.g. Sorry, the promise didnt work).
                     }, 2000);                                                     
                 });
 
-                myProm.then( function(result) {                 
+                myProm.then( function(result) {                // use ".then" for resolve result.
                 console.log('Result:', result);
-                }).catch( function(err) {                              
+                }).catch( function(err) {                      // use  ".catch" for error.      
                 console.log('Error:', err.message);
                 });
 
 ```
+
+
 
