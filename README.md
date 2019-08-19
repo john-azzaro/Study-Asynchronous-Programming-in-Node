@@ -284,11 +284,13 @@ to account for resolved or rejected instances!
                     }, 2000);                                                     
                 });
 
-                myProm.then( function(result) {                // use ".then" for resolve result.
-                console.log('Result:', result);
-                }).catch( function(err) {                      // use  ".catch" for error.      
-                console.log('Error:', err.message);
-                });
+                myProm
+                   .then( function(result) {                    // use ".then" for resolve result.
+                   console.log('Result:', result);
+                   })
+                   .catch( function(err) {                      // use  ".catch" for error.      
+                   console.log('Error:', err.message);
+                   });
 
 ```
 
