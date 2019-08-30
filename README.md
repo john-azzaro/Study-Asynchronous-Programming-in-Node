@@ -18,20 +18,20 @@
 
 <br>
 
-## What is asynchronous programming
+## What is asynchronous programming?
 Asynchronous programming refers to the style of structure of a program whereby a call to some unit of functionality triggers an
 action that is allowed to continue outside of the ongoing flow of the program. 
 
 <br>
 
-## What's the difference between "asynchronous" and "synchronous" architecture
+## What's the difference between "asynchronous" and "synchronous" architecture?
 
 Let's use the analogy of a restraurant to show the difference between asynchronous vs synchronous architecture.  In both restaurants, there are two
 tables, a kitchen to process the orders from the tables, and a waiter to send those orders from the table to the kitchen and back again.
 
 <br>
 
-### With synchronous architecture, the program is "blocked" until it finishes a task 
+### With synchronous architecture, the program is "blocked" until it finishes a task. 
 
 In a **synchronous** (or **blocking**) restaurant, the waiter will:
 1.   ***Serve table 1**.*
@@ -57,7 +57,7 @@ Table 1 before moving on to Table 2.  In this example, Table 1 is *blocking* the
 
 <br>
 
-### With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future
+### With asynchronous architecture, tasks are NOT blocked but scheduled to complete in the future.
 
 In a **asynchronous** (or **non-blocking**) restaurant, the waiter will:
 1.   ***Serve table 1***.
@@ -107,7 +107,7 @@ from executing before moving on to the next one.
 ```
 <br>
 
-## Is Node asynchronous
+## Is Node asynchronous?
 Node has an **asynchronous**  (or **non-blocking**) architecture that uses a **single thead to service multiple requests**.  Asynchronous operations 
 allow Node.js to serve multiple requests efficiently as opposed to **synchronous** (or **blocking**) architecture, where a program must process one t
 hing first and *then* move on to the next task.
@@ -115,7 +115,7 @@ hing first and *then* move on to the next task.
 
 <br>
 
-## What are the patterns we can use in Node to deal with asynchronous code
+## What are the patterns we can use in Node to deal with asynchronous code?
 There are three patterns that can help deal with asynchronous code:
 1.      Callbacks 
 2.      Promises
@@ -124,12 +124,12 @@ There are three patterns that can help deal with asynchronous code:
 
 <br>
 
-## What is a callback
+## What is a callback?
 A **callback** is a function that will be called when the result of the asynchronous function is ready.
 
 <br>
 
-### How do you use a callback in a function
+### How do you use a callback in a function?
 Suppose you have a function that needs to return a user from a database. 
 
 In the following example, we have a function that will get a user by id (i.e. getUser(id)).  When we call getUser, we *should* be able to
@@ -164,7 +164,7 @@ If you run the code above, you will see this in the console:
 
 <br>
 
-### You can use callbacks to deal with asynchronous code
+### You can use callbacks to deal with asynchronous code.
 To use a callback in the example above, we have to do 3 things:
 
 1. Add "callback" to our function parameters.
@@ -197,14 +197,14 @@ If you run the code above, you will see this in the console:
 
 <br>
 
-### However, using multiple callbacks can be hell
+### However, using multiple callbacks can be hell...
 One of the drawbacks to using callbacks is that your code can devolve into a series of nested callback functions, which is commonly referred to as 
 *"Callback hell"* or *"Christmas tree problem"* or *"pyramid of doom"*.  This is something you want to avoid because it is associated with bad coding practices.
 
 
 <br>
 
-## Promises make it easier to work with asynchronous operations
+## Promises make it easier to work with asynchronous operations!
 A "promise" is an object that holds the eventual result of an asynchrnous operation.  In other words, *a "promise" essentially promisses you to give you the result of an asynchronous operation.*  That result can have either another value or an error.  With promises, you can avoid the issues asociate with "callback hell".
 
 A promise can have 3 different states: Pending, Resolved, or Rejected.  To show how these states stack up next to each other, take a look a the example below:
@@ -224,7 +224,7 @@ When a promise is **REJECTED**, something went wrong with the execution of the a
 
 <br>
 
-### How do you use Promises
+### How do you use Promises?
 To use a promise, first create a *constructor* function which will create a promise that takes a function as an argument with two parameters, *resolve* or *reject*
 and store as a constant with your preferred variable name (e.g. myProm).  
 
